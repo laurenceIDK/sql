@@ -32,7 +32,7 @@ CREATE TABLE service (
     service_no          CHAR(3)         NOT NULL,
     service_name        VARCHAR(50)     NOT NULL,
     service_desc        VARCHAR(200)    NOT NULL,
-    service_price       NUMBER(3,2)     NOT NULL,
+    service_price       NUMBER(5,2)     NOT NULL,
     PRIMARY KEY (service_no),
     CONSTRAINT service_price_chk CHECK (service_price > 0)
 );
@@ -79,7 +79,7 @@ CREATE TABLE payment (
 
 CREATE TABLE appointment_service (
     apt_no              CHAR(5)         NOT NULL,
-    service_no          CHAR(5)         NOT NULL,
+    service_no          CHAR(3)         NOT NULL,
     stylist_id          CHAR(5)         NOT NULL,
     PRIMARY KEY (apt_no, service_no, stylist_id),
     FOREIGN KEY (apt_no) REFERENCES appointment (apt_no),
